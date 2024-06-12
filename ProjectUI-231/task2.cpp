@@ -34,7 +34,7 @@ void bubbleSortAscending(vector<int>& numbers) {
 void readDataFromFile(const string& filename, vector<string>& rivers, vector<int>& numbers) {
     ifstream file(filename);
     if (!file.is_open()) {
-        cout << "Ôàéë íå çíàéäåíî" << endl;
+        cout << "Ð¤Ð°Ð¹Ð» Ð½Ðµ Ð·Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾" << endl;
         return;
     }
     string line;
@@ -49,7 +49,7 @@ void readDataFromFile(const string& filename, vector<string>& rivers, vector<int
 }
 
 void executeTask2() {
-    // Âñòàíîâëåííÿ êîäóâàííÿ äëÿ êîíñîë³
+    // Ð’ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ ÐºÐ¾Ð´ÑƒÐ²Ð°Ð½Ð½Ñ Ð´Ð»Ñ ÐºÐ¾Ð½ÑÐ¾Ð»Ñ–
     system("chcp 1251");
 
     vector<string> rivers;
@@ -62,7 +62,7 @@ void executeTask2() {
     }
 
     sort(rivers.begin(), rivers.end());
-    cout << "Ñîðòóâàííÿ ð³÷îê çà çðîñòàííÿì (std::sort):" << endl;
+    cout << "Ð¡Ð¾Ñ€Ñ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ñ€Ñ–Ñ‡Ð¾Ðº Ð·Ð° Ð·Ñ€Ð¾ÑÑ‚Ð°Ð½Ð½ÑÐ¼ (std::sort):" << endl;
     for (const auto& river : rivers) {
         if (!river.empty()) {
             cout << river << " ";
@@ -71,7 +71,7 @@ void executeTask2() {
     cout << endl;
 
     sort(rivers.begin(), rivers.end(), compareByLengthAndAlphabetical);
-    cout << "Ñîðòóâàííÿ ð³÷îê çà çðîñòàííÿì (ñïî÷àòêó çà äîâæèíîþ, ïîò³ì çà àëôàâ³òîì):" << endl;
+    cout << "Ð¡Ð¾Ñ€Ñ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ñ€Ñ–Ñ‡Ð¾Ðº Ð·Ð° Ð·Ñ€Ð¾ÑÑ‚Ð°Ð½Ð½ÑÐ¼ (ÑÐ¿Ð¾Ñ‡Ð°Ñ‚ÐºÑƒ Ð·Ð° Ð´Ð¾Ð²Ð¶Ð¸Ð½Ð¾ÑŽ, Ð¿Ð¾Ñ‚Ñ–Ð¼ Ð·Ð° Ð°Ð»Ñ„Ð°Ð²Ñ–Ñ‚Ð¾Ð¼):" << endl;
     for (const auto& river : rivers) {
         if (!river.empty()) {
             cout << river << " ";
@@ -80,14 +80,14 @@ void executeTask2() {
     cout << endl;
 
     sort(numbers.begin(), numbers.end());
-    cout << "Ñîðòóâàííÿ ÷èñåë çà çðîñòàííÿì (std::sort):" << endl;
+    cout << "Ð¡Ð¾Ñ€Ñ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ñ‡Ð¸ÑÐµÐ» Ð·Ð° Ð·Ñ€Ð¾ÑÑ‚Ð°Ð½Ð½ÑÐ¼ (std::sort):" << endl;
     for (const auto& number : numbers) {
         cout << number << " ";
     }
     cout << endl;
 
     bubbleSortAscending(numbers);
-    cout << "Ñîðòóâàííÿ ÷èñåë çà ñïàäàííÿì (áóëüáàøêîâå ñîðòóâàííÿ):" << endl;
+    cout << "Ð¡Ð¾Ñ€Ñ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ñ‡Ð¸ÑÐµÐ» Ð·Ð° ÑÐ¿Ð°Ð´Ð°Ð½Ð½ÑÐ¼ (Ð±ÑƒÐ»ÑŒÐ±Ð°ÑˆÐºÐ¾Ð²Ðµ ÑÐ¾Ñ€Ñ‚ÑƒÐ²Ð°Ð½Ð½Ñ):" << endl;
     for (const auto& number : numbers) {
         cout << number << " ";
     }
@@ -96,26 +96,26 @@ void executeTask2() {
     string searchRiver;
     int searchNumber;
 
-    cout << "Ââåä³òü íàçâó ð³÷êè äëÿ ïîøóêó: ";
+    cout << "Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ Ð½Ð°Ð·Ð²Ñƒ Ñ€Ñ–Ñ‡ÐºÐ¸ Ð´Ð»Ñ Ð¿Ð¾ÑˆÑƒÐºÑƒ: ";
     cin >> searchRiver;
 
-    cout << "Ââåä³òü ÷èñëî äëÿ ïîøóêó: ";
+    cout << "Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ Ñ‡Ð¸ÑÐ»Ð¾ Ð´Ð»Ñ Ð¿Ð¾ÑˆÑƒÐºÑƒ: ";
     cin >> searchNumber;
 
     auto itRiver = find(rivers.begin(), rivers.end(), searchRiver);
     auto itNumber = find(numbers.begin(), numbers.end(), searchNumber);
 
     if (itRiver != rivers.end()) {
-        cout << "Çíàéäåíî ð³÷êó " << searchRiver << " ó ñïèñêó ð³÷îê." << endl;
+        cout << "Ð—Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾ Ñ€Ñ–Ñ‡ÐºÑƒ " << searchRiver << " Ñƒ ÑÐ¿Ð¸ÑÐºÑƒ Ñ€Ñ–Ñ‡Ð¾Ðº." << endl;
     }
     else {
-        cout << "Ð³÷êó " << searchRiver << " íå çíàéäåíî ó ñïèñêó ð³÷îê." << endl;
+        cout << "Ð Ñ–Ñ‡ÐºÑƒ " << searchRiver << " Ð½Ðµ Ð·Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾ Ñƒ ÑÐ¿Ð¸ÑÐºÑƒ Ñ€Ñ–Ñ‡Ð¾Ðº." << endl;
     }
 
     if (itNumber != numbers.end()) {
-        cout << "Çíàéäåíî ÷èñëî " << searchNumber << " ó ñïèñêó ÷èñåë." << endl;
+        cout << "Ð—Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾ Ñ‡Ð¸ÑÐ»Ð¾ " << searchNumber << " Ñƒ ÑÐ¿Ð¸ÑÐºÑƒ Ñ‡Ð¸ÑÐµÐ»." << endl;
     }
     else {
-        cout << "×èñëî " << searchNumber << " íå çíàéäåíî ó ñïèñêó ÷èñåë." << endl;
+        cout << "Ð§Ð¸ÑÐ»Ð¾ " << searchNumber << " Ð½Ðµ Ð·Ð½Ð°Ð¹Ð´ÐµÐ½Ð¾ Ñƒ ÑÐ¿Ð¸ÑÐºÑƒ Ñ‡Ð¸ÑÐµÐ»." << endl;
     }
 }

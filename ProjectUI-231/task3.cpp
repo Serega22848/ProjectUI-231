@@ -16,7 +16,7 @@ public:
     Program(string t, string st, int dur, int ep, int part)
         : type(t), startTime(st), duration(dur), episodeNumber(ep), participants(part) {}
 
-    // Функція для визначення кінцевого часу програми
+    // Р¤СѓРЅРєС†С–СЏ РґР»СЏ РІРёР·РЅР°С‡РµРЅРЅСЏ РєС–РЅС†РµРІРѕРіРѕ С‡Р°СЃСѓ РїСЂРѕРіСЂР°РјРё
     string getEndTime() const {
         int hours = stoi(startTime.substr(0, 2));
         int minutes = stoi(startTime.substr(3, 2));
@@ -28,8 +28,8 @@ public:
     }
 
     void display() const {
-        cout << "Тип програми: " << type << ", Початок: " << startTime << ", Тривалість: " << duration
-            << " хв, Випуск: " << episodeNumber << ", Учасники: " << participants << endl;
+        cout << "РўРёРї РїСЂРѕРіСЂР°РјРё: " << type << ", РџРѕС‡Р°С‚РѕРє: " << startTime << ", РўСЂРёРІР°Р»С–СЃС‚СЊ: " << duration
+            << " С…РІ, Р’РёРїСѓСЃРє: " << episodeNumber << ", РЈС‡Р°СЃРЅРёРєРё: " << participants << endl;
     }
 };
 
@@ -37,17 +37,17 @@ class ProgramList {
 public:
     vector<Program> programs;
 
-    // Додавання програми до списку
+    // Р”РѕРґР°РІР°РЅРЅСЏ РїСЂРѕРіСЂР°РјРё РґРѕ СЃРїРёСЃРєСѓ
     void addProgram(const Program& program) {
         if (isTimeSlotFree(program)) {
             programs.push_back(program);
         }
         else {
-            cout << "Програма не може бути додана, оскільки час виходу в ефір перетинається з іншою програмою." << endl;
+            cout << "РџСЂРѕРіСЂР°РјР° РЅРµ РјРѕР¶Рµ Р±СѓС‚Рё РґРѕРґР°РЅР°, РѕСЃРєС–Р»СЊРєРё С‡Р°СЃ РІРёС…РѕРґСѓ РІ РµС„С–СЂ РїРµСЂРµС‚РёРЅР°С”С‚СЊСЃСЏ Р· С–РЅС€РѕСЋ РїСЂРѕРіСЂР°РјРѕСЋ." << endl;
         }
     }
 
-    // Перевірка на накладання програм у часі
+    // РџРµСЂРµРІС–СЂРєР° РЅР° РЅР°РєР»Р°РґР°РЅРЅСЏ РїСЂРѕРіСЂР°Рј Сѓ С‡Р°СЃС–
     bool isTimeSlotFree(const Program& newProgram) const {
         for (const auto& program : programs) {
             if (newProgram.startTime < program.getEndTime() && newProgram.getEndTime() > program.startTime) {
@@ -57,14 +57,14 @@ public:
         return true;
     }
 
-    // Відображення списку програм
+    // Р’С–РґРѕР±СЂР°Р¶РµРЅРЅСЏ СЃРїРёСЃРєСѓ РїСЂРѕРіСЂР°Рј
     void displayAll() const {
         for (const auto& program : programs) {
             program.display();
         }
     }
 
-    // Пошук програм за типом
+    // РџРѕС€СѓРє РїСЂРѕРіСЂР°Рј Р·Р° С‚РёРїРѕРј
     vector<Program> searchByType(const string& type) const {
         vector<Program> result;
         for (const auto& program : programs) {
@@ -75,7 +75,7 @@ public:
         return result;
     }
 
-    // Пошук програм за часом виходу в ефір
+    // РџРѕС€СѓРє РїСЂРѕРіСЂР°Рј Р·Р° С‡Р°СЃРѕРј РІРёС…РѕРґСѓ РІ РµС„С–СЂ
     vector<Program> searchByStartTime(const string& startTime) const {
         vector<Program> result;
         for (const auto& program : programs) {
@@ -91,17 +91,17 @@ void executeTask3() {
     system("chcp 1251");
     ProgramList schedule;
 
-    schedule.addProgram(Program("Новини", "05:00", 30, 1, 2));
-    schedule.addProgram(Program("Фільм", "09:00", 120, 1, 10));
-    schedule.addProgram(Program("Шоу", "11:00", 60, 5, 3));
-    schedule.addProgram(Program("Новини", "12:00", 30, 2, 2));
+    schedule.addProgram(Program("РќРѕРІРёРЅРё", "05:00", 30, 1, 2));
+    schedule.addProgram(Program("Р¤С–Р»СЊРј", "09:00", 120, 1, 10));
+    schedule.addProgram(Program("РЁРѕСѓ", "11:00", 60, 5, 3));
+    schedule.addProgram(Program("РќРѕРІРёРЅРё", "12:00", 30, 2, 2));
 
-    cout << "Сітка мовлення:" << endl;
+    cout << "РЎС–С‚РєР° РјРѕРІР»РµРЅРЅСЏ:" << endl;
     schedule.displayAll();
 
     while (true) {
         int choice;
-        cout << "\nОберіть опцію для пошуку:\n1. Пошук програм за типом\n2. Пошук програм за часом виходу в ефір\n3. Вихід\nВаш вибір: ";
+        cout << "\nРћР±РµСЂС–С‚СЊ РѕРїС†С–СЋ РґР»СЏ РїРѕС€СѓРєСѓ:\n1. РџРѕС€СѓРє РїСЂРѕРіСЂР°Рј Р·Р° С‚РёРїРѕРј\n2. РџРѕС€СѓРє РїСЂРѕРіСЂР°Рј Р·Р° С‡Р°СЃРѕРј РІРёС…РѕРґСѓ РІ РµС„С–СЂ\n3. Р’РёС…С–Рґ\nР’Р°С€ РІРёР±С–СЂ: ";
         cin >> choice;
 
         if (choice == 3) {
@@ -110,34 +110,34 @@ void executeTask3() {
 
         if (choice == 1) {
             string searchType;
-            cout << "Введіть тип програми для пошуку: ";
+            cout << "Р’РІРµРґС–С‚СЊ С‚РёРї РїСЂРѕРіСЂР°РјРё РґР»СЏ РїРѕС€СѓРєСѓ: ";
             cin >> searchType;
 
             auto foundPrograms = schedule.searchByType(searchType);
-            cout << "\nРезультати пошуку за типом \"" << searchType << "\":" << endl;
+            cout << "\nР РµР·СѓР»СЊС‚Р°С‚Рё РїРѕС€СѓРєСѓ Р·Р° С‚РёРїРѕРј \"" << searchType << "\":" << endl;
             for (const auto& program : foundPrograms) {
                 program.display();
             }
             if (foundPrograms.empty()) {
-                cout << "Програми не знайдено." << endl;
+                cout << "РџСЂРѕРіСЂР°РјРё РЅРµ Р·РЅР°Р№РґРµРЅРѕ." << endl;
             }
         }
         else if (choice == 2) {
             string searchStartTime;
-            cout << "Введіть час виходу в ефір для пошуку (у форматі HH:MM): ";
+            cout << "Р’РІРµРґС–С‚СЊ С‡Р°СЃ РІРёС…РѕРґСѓ РІ РµС„С–СЂ РґР»СЏ РїРѕС€СѓРєСѓ (Сѓ С„РѕСЂРјР°С‚С– HH:MM): ";
             cin >> searchStartTime;
 
             auto foundPrograms = schedule.searchByStartTime(searchStartTime);
-            cout << "\nРезультати пошуку за часом виходу в ефір \"" << searchStartTime << "\":" << endl;
+            cout << "\nР РµР·СѓР»СЊС‚Р°С‚Рё РїРѕС€СѓРєСѓ Р·Р° С‡Р°СЃРѕРј РІРёС…РѕРґСѓ РІ РµС„С–СЂ \"" << searchStartTime << "\":" << endl;
             for (const auto& program : foundPrograms) {
                 program.display();
             }
             if (foundPrograms.empty()) {
-                cout << "Програми не знайдено." << endl;
+                cout << "РџСЂРѕРіСЂР°РјРё РЅРµ Р·РЅР°Р№РґРµРЅРѕ." << endl;
             }
         }
         else {
-            cout << "Невірний вибір. Спробуйте ще раз." << endl;
+            cout << "РќРµРІС–СЂРЅРёР№ РІРёР±С–СЂ. РЎРїСЂРѕР±СѓР№С‚Рµ С‰Рµ СЂР°Р·." << endl;
         }
     }
 }
