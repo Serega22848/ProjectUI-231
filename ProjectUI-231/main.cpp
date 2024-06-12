@@ -7,7 +7,7 @@ void executeTask3();
 int main() {
     system("chcp 1251");
     int choice;
-    std::cout << "Âèáåð³òü çàâäàííÿ äëÿ âèêîíàííÿ (1, 2, àáî 3): ";
+    std::cout << "Ð’Ð¸Ð±ÐµÑ€Ñ–Ñ‚ÑŒ Ð·Ð°Ð²Ð´Ð°Ð½Ð½Ñ Ð´Ð»Ñ Ð²Ð¸ÐºÐ¾Ð½Ð°Ð½Ð½Ñ (1, 2, Ð°Ð±Ð¾ 3): ";
     std::cin >> choice;
 
     switch (choice) {
@@ -21,7 +21,7 @@ int main() {
         executeTask3();
         break;
     default:
-        std::cout << "Íåâ³ðíèé âèá³ð!" << std::endl;
+        std::cout << "ÐÐµÐ²Ñ–Ñ€Ð½Ð¸Ð¹ Ð²Ð¸Ð±Ñ–Ñ€!" << std::endl;
     }
 
     return 0;
